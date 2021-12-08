@@ -14,12 +14,26 @@ struct OutputValueView: View {
     let suffix: String
     
     // MARK: Computed properties
-    var formattedValue: String {
-        return String(format: "%.1f", value)
+    // When there is an actual value to shoe, present it rounded to one decimal place.
+    // When there is no value to show (nil) present
+    var output: String {
+        if let value = value {
+            // We have valid value to show
+            let formattedValue = String(format: "%.1f", value)
+            // return the output to show
+            return "\(formattedValue) \(suffix)"
+        } else {
+            return "Cannot currently be computed."
+            
+            
+            
+            
+    
+        }
     }
     
     var body: some View {
-        Text("\(formattedValue) \(suffix)")
+        Text(output)
             .font(.title3)
             .bold()
     }
