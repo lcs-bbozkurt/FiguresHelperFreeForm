@@ -10,6 +10,9 @@ import SwiftUI
 struct CircleView: View {
     
     // MARK: Stored properties
+    // Whatever the user adds to the text view.
+    @State var provideRadius = ""
+    
     @State var radius = 10.0
     
     // MARK: Computed properties
@@ -28,18 +31,9 @@ struct CircleView: View {
                 SectionLabelView(text: "Radius", variable: "r")
 
                 // Input: Radius
-                Slider(value: $radius,
-                       in: 0.0...100.0,
-                       step: 0.1,
-                       label: {
-                    Text("Radius")
-                },
-                       minimumValueLabel: {
-                    Text("0")
-                },
-                       maximumValueLabel: {
-                    Text("100")
-                })
+
+                
+                TextField("Radius", text: $provideRadius, prompt: Text("Numeric value greater than 0"))
                 
                 // Output: Radius
                 SliderValueView(value: radius)
