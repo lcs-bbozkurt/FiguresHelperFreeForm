@@ -12,10 +12,33 @@ struct SphereView: View {
     // MARK: Stored properties
     // Whatever the user adds to the text field
     @State var providedRadius = ""
-    @State var radius = 10.0
+    
     
     // MARK: Computed properties
-    var surfaceArea: Double {
+    // Check the input given by the user
+    // If possible, return a Double
+    // Otherwise (bad input) return nil
+    var radius: Double? {
+    // Tests of the provided input
+        // 1. Ensure that we can simply change the input into a Double
+        // 2. Ensure that we have a value as s Double is more than 0
+        // With a "guard" statement, we list the things we wish to be true... and provide an action to carry out when those conditions are not met.
+        guard let radius = Double(providedRadius),
+              radius > 0
+        else {
+            // When the tests are failed, we do not have a valid radius
+            return nil
+        }
+        // If we get here, we know the radius is good
+               return radius
+    }
+
+        
+        
+        
+        
+        
+            var surfaceArea: Double {
         return 4 * Double.pi * radius * radius
     }
     
