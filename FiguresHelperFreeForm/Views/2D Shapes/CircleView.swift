@@ -11,12 +11,11 @@ struct CircleView: View {
     
     // MARK: Stored properties
     // Whatever the user adds to the text view.
-    @State var provideRadius = ""
+    @State var providedRadius = ""
     // Check the input given by the user
     // If possible, return a Double
     // Else, (bad input) return nil.
     
-    @State var radius = 10.0
     
     // MARK: Computed properties
     // Check the input given by the user
@@ -27,8 +26,8 @@ struct CircleView: View {
         // Tests of the provided input.
         // 1. Ensure that we can simply change the input into a Double.
         // 2. Ensure that the valueu as a Double is more than zero.
-        // With a guard statement we list things we wish to be true... adn provide an action to carry out when those conditions are not met.
-        guard let radius = Double(provideRadius),
+        // With a "guard statement" we list things we wish to be true... and provide an action to carry out when those conditions are not met.
+        guard let radius = Double(providedRadius),
               radius > 0
         else {
             // When the tests are failed, we do not have a valid radius
@@ -39,7 +38,7 @@ struct CircleView: View {
 
     }
     // Attemps to calculate the area, if it can't ... returns nil
-    var area: Double {
+    var area: Double? {
         
         // Is the input actually a Double, or... is it Double? (might be nil)
         guard let radius = radius
@@ -68,7 +67,7 @@ struct CircleView: View {
                 // Input: Radius
 
                 
-                TextField("Radius", text: $provideRadius, prompt: Text("Numeric value greater than 0"))
+                TextField("Radius", text: $providedRadius, prompt: Text("Numeric value greater than 0"))
                 // Ternary condition operator
                 // One line of statement
                 //   CONDITION                        TRUE             FALSE
