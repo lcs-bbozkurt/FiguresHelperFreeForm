@@ -58,9 +58,8 @@ struct SphereView: View {
 
                 // Input: Radius
                 TextField("Radius", text: $providedRadius, prompt: Text( "Numeric value greater than 0"))
-                
-                // Output: Radius
-           
+                    .foregroundColor(radius == nil ? Color.red : Color.primary)
+     
                 
                 SectionLabelView(text: "Surface Area", variable: "")
                 
