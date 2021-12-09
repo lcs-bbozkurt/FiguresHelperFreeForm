@@ -38,7 +38,11 @@ struct SphereView: View {
         
         
         
-            var surfaceArea: Double {
+            var surfaceArea: Double? {
+                guard let radius = radius else {
+                    return nil
+                }
+
         return 4 * Double.pi * radius * radius
     }
     
@@ -56,7 +60,7 @@ struct SphereView: View {
                 TextField("Radius", text: $providedRadius, prompt: Text( "Numeric value greater than 0"))
                 
                 // Output: Radius
-                SliderValueView(value: radius)
+           
                 
                 SectionLabelView(text: "Surface Area", variable: "")
                 
