@@ -15,6 +15,36 @@ struct ParallelogramView: View {
     @State var c = ""
 
     // MARK: Computed properties
+    var base: Double? {
+        guard let base = Double(b),
+              base > 0
+        else {
+            return nil
+        }
+        return base
+    }
+   
+    var height: Double? {
+        guard let height = Double(h),
+              height > 0
+        else {
+            return nil
+        }
+        return height
+    }
+   
+    var diognal: Double? {
+        guard let diognal = Double(c),
+              diognal > 0
+        else {
+            return nil
+        }
+        return diognal
+    }
+    
+    
+    
+    
     var area: Double {
         return b * h
     }
@@ -58,7 +88,7 @@ struct ParallelogramView: View {
                     SectionLabelView(text: "Diagonal", variable: "c")
 
                     // Input: Diognal
-                    TextField("Diognal", text: $c, prompt: Text("Numeric value greater than 0 and the height."))
+                    TextField("Diognal", text: $c, prompt: Text("Numeric value greater than 0."))
                     
                     // Output: Base
                    
