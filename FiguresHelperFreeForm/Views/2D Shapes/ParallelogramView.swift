@@ -45,7 +45,17 @@ struct ParallelogramView: View {
     
     
     
-    var area: Double {
+    var area: Double? {
+        guard let base = base
+                
+        else {
+            return nil
+        guard let height = height
+        
+        else {
+                return nil
+            }
+        }
         return b * h
     }
     
