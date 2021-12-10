@@ -10,9 +10,9 @@ import SwiftUI
 struct ParallelogramView: View {
     
     // MARK: Stored properties
-    @State var b = 10.0
-    @State var h = 10.0
-    @State var c = 10.0
+    @State var b = ""
+    @State var h = ""
+    @State var c = ""
 
     // MARK: Computed properties
     var area: Double {
@@ -34,21 +34,9 @@ struct ParallelogramView: View {
                     SectionLabelView(text: "Base", variable: "b")
 
                     // Input: Base
-                    Slider(value: $b,
-                           in: 0.0...100.0,
-                           step: 0.1,
-                           label: {
-                        Text("Base")
-                    },
-                           minimumValueLabel: {
-                        Text("0")
-                    },
-                           maximumValueLabel: {
-                        Text("100")
-                    })
+                   TextField("Base", text: $b, prompt: Text("Numeric value greater than 0."))
                     
-                    // Output: Base
-                    SliderValueView(value: b)
+                 
 
                 }
                 
@@ -58,21 +46,9 @@ struct ParallelogramView: View {
                     SectionLabelView(text: "Height", variable: "h")
 
                     // Input: Height
-                    Slider(value: $h,
-                           in: 0.0...100.0,
-                           step: 0.1,
-                           label: {
-                        Text("Height")
-                    },
-                           minimumValueLabel: {
-                        Text("0")
-                    },
-                           maximumValueLabel: {
-                        Text("100")
-                    })
-                    
+                   TextField("Height", text: $h, prompt: Text ("Numeric value greater than 0."))
                     // Output: Base
-                    SliderValueView(value: h)
+                    
 
                 }
 
@@ -81,22 +57,11 @@ struct ParallelogramView: View {
                     
                     SectionLabelView(text: "Diagonal", variable: "c")
 
-                    // Input: Height
-                    Slider(value: $c,
-                           in: 0.0...100.0,
-                           step: 0.1,
-                           label: {
-                        Text("Height")
-                    },
-                           minimumValueLabel: {
-                        Text("0")
-                    },
-                           maximumValueLabel: {
-                        Text("100")
-                    })
+                    // Input: Diognal
+                    TextField("Diognal", text: $c, prompt: Text("Numeric value greater than 0 and the height."))
                     
                     // Output: Base
-                    SliderValueView(value: c)
+                   
 
                 }
 
